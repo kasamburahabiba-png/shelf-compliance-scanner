@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { supabase } from './supabaseClient'
+import Products from './Products'
 
 function App() {
   const [session, setSession] = useState(null)
@@ -57,9 +58,14 @@ function App() {
         <p>Email: {session.user.email}</p>
         <p>Role: <b>{role || 'loading...'}</b></p>
         <button style={btn} onClick={() => supabase.auth.signOut()}>
-          Log out
+      
         </button>
+                <button style={btn} onClick={() => supabase.auth.signOut()}>
+          Logout
+        </button>
+        <Products role={role} />
       </div>
+      
     )
   }
 
